@@ -8,19 +8,35 @@
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "splash": {
+        "image": "./assets/icon-1.jpg",  // Path to your splash icon
+        "resizeMode": "contain",  // Adjust image size (contain or cover)
+        "backgroundColor": "#000"  // Background color of splash screen
+      }
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/bb.mp4",
-        "backgroundColor": "#000"
-      }
+        "foregroundImage": "./assets/icon.png",  // App icon
+        "backgroundColor": "#000"  // Background color of splash screen
+      },
+      "splash": {
+        "image": "./assets/icon-1.jpg",  // Path to your splash icon
+        "resizeMode": "contain",  // Adjust image size (contain or cover)
+        "backgroundColor": "#000"  // Background color of splash screen
+      },
+      "package": "com.nikhil_tony.MovieApp"
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
     "plugins": [
       "expo-font"
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "8ddadd74-a2b7-4471-8ff7-a3573677be33"
+      }
+    }
   }
 }

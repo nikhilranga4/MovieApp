@@ -8,16 +8,16 @@ const SplashScreen = () => {
 
   useEffect(() => {
     const timeout = setTimeout(() => {
-      navigation.replace('SignUpScreen'); // Corrected screen name
-    }, 2600);
+      navigation.replace('SignUpScreen'); // Navigate to your next screen
+    }, 2600); // Adjust the duration of the splash screen if needed
 
-    return () => clearTimeout(timeout); // Cleanup timeout
+    return () => clearTimeout(timeout); // Cleanup timeout on unmount
   }, [navigation]);
 
   return (
     <View style={styles.container}>
       <LottieView
-        source={require('../../assets/loading.json')}
+        source={require('../../assets/loading.json')} // Your animation file
         autoPlay
         loop={false}
         style={styles.animation}
@@ -32,17 +32,17 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#000',
+    backgroundColor: '#000', // Black background for the splash screen
   },
   animation: {
     width: Dimensions.get('window').width * 0.9,
-    height: Dimensions.get('window').width * 0.9,
+    height: Dimensions.get('window').width * 0.9, // Adjust based on your design
   },
   text: {
     color: '#fff',
     fontSize: 24,
     marginTop: 20,
-    fontFamily: 'SyneMono-Bold',
+    fontFamily: 'SyneMono-Bold', // Ensure this font is correctly loaded
   },
 });
 
