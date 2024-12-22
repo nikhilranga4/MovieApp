@@ -1,3 +1,4 @@
+// BottomTabNavigator.js
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -8,7 +9,6 @@ import HomeScreen from '../screens/HomeScreen';
 import SearchScreen from '../screens/SearchScreen';
 import DetailsScreen from '../screens/DetailsScreen';
 
-// Create Navigators
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
@@ -24,7 +24,7 @@ const HomeStack = () => (
       name="HomeDetails"
       component={DetailsScreen}
       options={({ route }) => ({
-        title: route.params?.show?.name ? route.params.show.name : 'Details',
+        title: route.params?.show?.name || 'Details',
       })}
     />
   </Stack.Navigator>
@@ -42,13 +42,12 @@ const SearchStack = () => (
       name="SearchDetails"
       component={DetailsScreen}
       options={({ route }) => ({
-        title: route.params?.show?.name ? route.params.show.name : 'Details',
+        title: route.params?.show?.name || 'Details',
       })}
     />
   </Stack.Navigator>
 );
 
-// Main Tab Navigator
 const BottomTabNavigator = () => (
   <Tab.Navigator
     screenOptions={({ route }) => ({
@@ -61,16 +60,14 @@ const BottomTabNavigator = () => (
         }
         return <Ionicons name={iconName} size={size} color={color} />;
       },
-      tabBarActiveTintColor: '#e50914', // Netflix red
+      tabBarActiveTintColor: '#e50914',
       tabBarInactiveTintColor: 'gray',
-      tabBarStyle: {
-        backgroundColor: '#000', // Set background color to black
-      },
+      tabBarStyle: { backgroundColor: '#000' },
       headerShown: false,
     })}
   >
-    <Tab.Screen name="HomeTab" component={HomeStack} />
-    <Tab.Screen name="SearchTab" component={SearchStack} />
+    <Tab.Screen name="HomeTab" component={HomeStack} options={{ title: 'Home' }} />
+    <Tab.Screen name="SearchTab" component={SearchStack} options={{ title: 'Search' }} />
   </Tab.Navigator>
 );
 

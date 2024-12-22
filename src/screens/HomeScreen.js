@@ -8,8 +8,8 @@ import {
   Text,
 } from 'react-native';
 import axios from 'axios';
-import MovieCard from '../components/MovieCard'; // Assuming MovieCard is a custom component
-import SearchBar from '../components/SearchBar'; // Assuming SearchBar is a custom component
+import MovieCard from '../components/MovieCard';
+import SearchBar from '../components/SearchBar';
 
 const HomeScreen = ({ navigation }) => {
   const [movies, setMovies] = useState([]);
@@ -77,19 +77,8 @@ const HomeScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      {/* Banner Section */}
-      <View style={styles.banner}>
-        <Text style={styles.bannerText}>Welcome to MovieApp</Text>
-        <Text style={styles.subText}>Find your favorite shows and movies</Text>
-      </View>
-
-      {/* Search Bar Section */}
-      <SearchBar
-        placeholder="Search Movies"
-        onSearch={handleSearch}
-      />
-
-      {/* Loading or Movie List */}
+      <Text style={styles.bannerText}>Welcome to MovieApp</Text>
+      <SearchBar placeholder="Search Movies" onSearch={handleSearch} />
       {loading ? (
         <ActivityIndicator size="large" color="#e50914" style={styles.loader} />
       ) : (
@@ -118,33 +107,10 @@ const HomeScreen = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#121212', // Dark background
-  },
-  banner: {
-    backgroundColor: '#1E1E1E',
-    paddingVertical: 20,
-    alignItems: 'center',
-    marginBottom: 10,
-  },
-  bannerText: {
-    fontSize: 28,
-    color: '#fff',
-    fontWeight: 'bold',
-  },
-  subText: {
-    fontSize: 16,
-    color: '#bbb',
-    marginTop: 5,
-  },
-  loader: {
-    marginTop: 20,
-    marginBottom: 20,
-  },
-  flatlistContainer: {
-    paddingHorizontal: 10,
-  },
+  container: { flex: 1, backgroundColor: '#121212' },
+  bannerText: { fontSize: 22, color: '#fff', fontWeight: 'bold', textAlign: 'center', marginVertical: 15 },
+  loader: { marginTop: 20 },
+  flatlistContainer: { paddingHorizontal: 10 },
 });
 
 export default HomeScreen;

@@ -7,9 +7,8 @@ const SplashScreen = () => {
   const navigation = useNavigation();
 
   useEffect(() => {
-    // Navigate to BottomTabNavigator after 3 seconds
     const timeout = setTimeout(() => {
-      navigation.replace('HomeTabs'); // Replace SplashScreen with HomeTabs
+      navigation.replace('SignUpScreen'); // Corrected screen name
     }, 2600);
 
     return () => clearTimeout(timeout); // Cleanup timeout
@@ -20,8 +19,8 @@ const SplashScreen = () => {
       <LottieView
         source={require('../../assets/loading.json')}
         autoPlay
-        loop={false} // Play once
-        style={styles.animation} // Ensure animation size is appropriate
+        loop={false}
+        style={styles.animation}
       />
       <Text style={styles.text}>Welcome to MovieApp</Text>
     </View>
@@ -33,17 +32,17 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#000', // Match app theme
+    backgroundColor: '#000',
   },
   animation: {
-    width: Dimensions.get('window').width * 0.9, // 80% of screen width
-    height: Dimensions.get('window').width * 0.9, // 80% of screen width
+    width: Dimensions.get('window').width * 0.9,
+    height: Dimensions.get('window').width * 0.9,
   },
   text: {
     color: '#fff',
     fontSize: 24,
     marginTop: 20,
-    fontFamily: 'SyneMono-Bold', // Use your custom font
+    fontFamily: 'SyneMono-Bold',
   },
 });
 
