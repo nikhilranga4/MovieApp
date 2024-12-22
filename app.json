@@ -7,11 +7,6 @@
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
-    "splash": {
-      "image": "./assets/bb.mp4",
-      "resizeMode": "contain",
-      "backgroundColor": "#000"
-    },
     "ios": {
       "supportsTablet": true
     },
