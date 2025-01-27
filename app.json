@@ -10,20 +10,20 @@
     "ios": {
       "supportsTablet": true,
       "splash": {
-        "image": "./assets/icon-1.jpg",  // Path to your splash icon
-        "resizeMode": "contain",  // Adjust image size (contain or cover)
-        "backgroundColor": "#000"  // Background color of splash screen
+        "image": "./assets/icon-1.jpg",
+        "resizeMode": "contain",
+        "backgroundColor": "#000"
       }
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/icon.png",  // App icon
-        "backgroundColor": "#000"  // Background color of splash screen
+        "foregroundImage": "./assets/icon.png",
+        "backgroundColor": "#000"
       },
       "splash": {
-        "image": "./assets/icon-1.jpg",  // Path to your splash icon
-        "resizeMode": "contain",  // Adjust image size (contain or cover)
-        "backgroundColor": "#000"  // Background color of splash screen
+        "image": "./assets/icon-1.jpg",
+        "resizeMode": "contain",
+        "backgroundColor": "#000"
       },
       "package": "com.nikhil_tony.MovieApp"
     },
@@ -37,6 +37,7 @@
       "eas": {
         "projectId": "8ddadd74-a2b7-4471-8ff7-a3573677be33"
       }
-    }
+    },
+    "owner": "nikhil_tony"
   }
 }
