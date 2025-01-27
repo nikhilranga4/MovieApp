@@ -1,0 +1,40 @@
+name: Build Expo APK
+
+on:
+  push:
+    branches:
+      - main  # Trigger builds on pushes to the main branch
+  workflow_dispatch: # Allow manual triggers
+
+jobs:
+  build-apk:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Login to Expo
+      run: npx expo login --username ${{ secrets.EXPO_USERNAME }} --password ${{ secrets.EXPO_PASSWORD }}
+
+    - name: Install EAS CLI
+      run: npm install -g eas-cli
+
+    - name: Build APK
+      run: eas build --platform android --profile production --non-interactive
+      env:
+        EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+
+    - name: Upload APK artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: app-apk
+        path: dist/*.apk  # Adjust the path if needed
